@@ -17,7 +17,6 @@ const AddPatient = (props) => {
     const [errorMessage, setErrorMessage] = useState();
     const [patientId,setPatientId]=useState();
     const [patientIdError,setPatientIdError]=useState();
-
     const changeData = (event) => {
         if(event.target.name === "patientid"){
             setPatientId(event.target.value);
@@ -104,6 +103,11 @@ const AddPatient = (props) => {
             dataResponce.then((response) => {
                 if (response.success) {
                     setErrorMessage();
+                    setUserName('');
+                    setUserAge('');
+                    setGender('');
+                    setContact('');
+                    setPatientId('');
                 } else {
                     setErrorMessage('Something went wrong.Try again');
                 }
